@@ -1,0 +1,3 @@
+[submodule "intrusive_linked_list"]
+	path = intrusive_linked_list
+	url = ./intrusive_linked_list
