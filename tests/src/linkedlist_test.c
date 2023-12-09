@@ -1,4 +1,4 @@
-#include "acl_linkedlist.h"
+#include <acl_linkedlist.h>
 #include <stdio.h>
 
 struct node
@@ -69,7 +69,6 @@ int main()
 	else
 		printf("%s\n","Not found.");
 
-
 	//deleting
 	printf("\nDeleting (key = 'Name'):\n");
 
@@ -83,10 +82,6 @@ int main()
 	}
 	else
 		printf("Not found. Skipped deletion.\n");
-
-
-
-
 
 	return 0;
 }
