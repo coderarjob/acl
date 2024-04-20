@@ -15,6 +15,7 @@ target_include_directories(${PROJECT_NAME}
     PUBLIC 
         linkedlist 
         stack
-        intrusive_linkedlist)
+        intrusive_linkedlist
+        intrusive_queue)
 
 add_subdirectory(tests)

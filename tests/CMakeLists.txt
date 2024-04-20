@@ -33,3 +33,12 @@ add_executable(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME} acl)
 ###########################################################################
+# INTRUSIVE QUEUE
+###########################################################################
+project(intrusive_queue)
+
+add_executable(${PROJECT_NAME}
+    unittest.c
+    src/intrusive_queue_test.c)
+
+target_link_libraries(${PROJECT_NAME} acl)
