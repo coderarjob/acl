@@ -1,0 +1,52 @@
+[
+{
+  "directory": "/home/coder/Work/c/projects/acl/build",
+  "command": "/usr/bin/cc  -I/home/coder/Work/c/projects/acl/linkedlist -I/home/coder/Work/c/projects/acl/stack -I/home/coder/Work/c/projects/acl/intrusive_linkedlist -I/home/coder/Work/c/projects/acl/intrusive_queue  -o CMakeFiles/acl.dir/linkedlist/acl_linkedlist.c.o -c /home/coder/Work/c/projects/acl/linkedlist/acl_linkedlist.c",
+  "file": "/home/coder/Work/c/projects/acl/linkedlist/acl_linkedlist.c"
+},
+{
+  "directory": "/home/coder/Work/c/projects/acl/build",
+  "command": "/usr/bin/cc  -I/home/coder/Work/c/projects/acl/linkedlist -I/home/coder/Work/c/projects/acl/stack -I/home/coder/Work/c/projects/acl/intrusive_linkedlist -I/home/coder/Work/c/projects/acl/intrusive_queue  -o CMakeFiles/acl.dir/stack/acl_stack.c.o -c /home/coder/Work/c/projects/acl/stack/acl_stack.c",
+  "file": "/home/coder/Work/c/projects/acl/stack/acl_stack.c"
+},
+{
+  "directory": "/home/coder/Work/c/projects/acl/build/tests",
+  "command": "/usr/bin/cc  -I/home/coder/Work/c/projects/acl/tests/include -I/home/coder/Work/c/projects/acl/linkedlist -I/home/coder/Work/c/projects/acl/stack -I/home/coder/Work/c/projects/acl/intrusive_linkedlist -I/home/coder/Work/c/projects/acl/intrusive_queue  -o CMakeFiles/intrusive_linkedlist_test.dir/unittest.c.o -c /home/coder/Work/c/projects/acl/tests/unittest.c",
+  "file": "/home/coder/Work/c/projects/acl/tests/unittest.c"
+},
+{
+  "directory": "/home/coder/Work/c/projects/acl/build/tests",
+  "command": "/usr/bin/cc  -I/home/coder/Work/c/projects/acl/tests/include -I/home/coder/Work/c/projects/acl/linkedlist -I/home/coder/Work/c/projects/acl/stack -I/home/coder/Work/c/projects/acl/intrusive_linkedlist -I/home/coder/Work/c/projects/acl/intrusive_queue  -o CMakeFiles/intrusive_linkedlist_test.dir/src/intrusive_linkedlist_test.c.o -c /home/coder/Work/c/projects/acl/tests/src/intrusive_linkedlist_test.c",
+  "file": "/home/coder/Work/c/projects/acl/tests/src/intrusive_linkedlist_test.c"
+},
+{
+  "directory": "/home/coder/Work/c/projects/acl/build/tests",
+  "command": "/usr/bin/cc  -I/home/coder/Work/c/projects/acl/tests/include -I/home/coder/Work/c/projects/acl/linkedlist -I/home/coder/Work/c/projects/acl/stack -I/home/coder/Work/c/projects/acl/intrusive_linkedlist -I/home/coder/Work/c/projects/acl/intrusive_queue  -o CMakeFiles/linkedlist_test.dir/unittest.c.o -c /home/coder/Work/c/projects/acl/tests/unittest.c",
+  "file": "/home/coder/Work/c/projects/acl/tests/unittest.c"
+},
+{
+  "directory": "/home/coder/Work/c/projects/acl/build/tests",
+  "command": "/usr/bin/cc  -I/home/coder/Work/c/projects/acl/tests/include -I/home/coder/Work/c/projects/acl/linkedlist -I/home/coder/Work/c/projects/acl/stack -I/home/coder/Work/c/projects/acl/intrusive_linkedlist -I/home/coder/Work/c/projects/acl/intrusive_queue  -o CMakeFiles/linkedlist_test.dir/src/linkedlist_test.c.o -c /home/coder/Work/c/projects/acl/tests/src/linkedlist_test.c",
+  "file": "/home/coder/Work/c/projects/acl/tests/src/linkedlist_test.c"
+},
+{
+  "directory": "/home/coder/Work/c/projects/acl/build/tests",
+  "command": "/usr/bin/cc  -I/home/coder/Work/c/projects/acl/tests/include -I/home/coder/Work/c/projects/acl/linkedlist -I/home/coder/Work/c/projects/acl/stack -I/home/coder/Work/c/projects/acl/intrusive_linkedlist -I/home/coder/Work/c/projects/acl/intrusive_queue  -o CMakeFiles/stack_test.dir/unittest.c.o -c /home/coder/Work/c/projects/acl/tests/unittest.c",
+  "file": "/home/coder/Work/c/projects/acl/tests/unittest.c"
+},
+{
+  "directory": "/home/coder/Work/c/projects/acl/build/tests",
+  "command": "/usr/bin/cc  -I/home/coder/Work/c/projects/acl/tests/include -I/home/coder/Work/c/projects/acl/linkedlist -I/home/coder/Work/c/projects/acl/stack -I/home/coder/Work/c/projects/acl/intrusive_linkedlist -I/home/coder/Work/c/projects/acl/intrusive_queue  -o CMakeFiles/stack_test.dir/src/stack_test.c.o -c /home/coder/Work/c/projects/acl/tests/src/stack_test.c",
+  "file": "/home/coder/Work/c/projects/acl/tests/src/stack_test.c"
+},
+{
+  "directory": "/home/coder/Work/c/projects/acl/build/tests",
+  "command": "/usr/bin/cc  -I/home/coder/Work/c/projects/acl/tests/include -I/home/coder/Work/c/projects/acl/linkedlist -I/home/coder/Work/c/projects/acl/stack -I/home/coder/Work/c/projects/acl/intrusive_linkedlist -I/home/coder/Work/c/projects/acl/intrusive_queue  -o CMakeFiles/intrusive_queue.dir/unittest.c.o -c /home/coder/Work/c/projects/acl/tests/unittest.c",
+  "file": "/home/coder/Work/c/projects/acl/tests/unittest.c"
+},
+{
+  "directory": "/home/coder/Work/c/projects/acl/build/tests",
+  "command": "/usr/bin/cc  -I/home/coder/Work/c/projects/acl/tests/include -I/home/coder/Work/c/projects/acl/linkedlist -I/home/coder/Work/c/projects/acl/stack -I/home/coder/Work/c/projects/acl/intrusive_linkedlist -I/home/coder/Work/c/projects/acl/intrusive_queue  -o CMakeFiles/intrusive_queue.dir/src/intrusive_queue_test.c.o -c /home/coder/Work/c/projects/acl/tests/src/intrusive_queue_test.c",
+  "file": "/home/coder/Work/c/projects/acl/tests/src/intrusive_queue_test.c"
+}
+]
