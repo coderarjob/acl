@@ -45,5 +45,11 @@ static inline ListNode* dequeue_backward(ListNode *forward, ListNode *backward)
     return node;
 }
 
+#define queue_for_each_forward(forward, backward, node) \
+    for ((node) = (forward)->next; (node) != (backward); (node) = (node)->next)
+
+#define queue_for_each_backward(forward, backward, node) \
+    for ((node) = (backward)->prev; (node) != (forward); (node) = (node)->prev)
+
 #endif // INTRU_QUEUE_H
 

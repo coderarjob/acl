@@ -8,6 +8,28 @@
 ListNode forward;
 ListNode back;
 
+typedef struct Queue {
+    int number;
+    ListNode runlist;
+} Queue;
+
+static void s_showQueueItems()
+{
+    ListNode *node;
+
+    printf("Printing forward:\n");
+    queue_for_each_forward(&forward, &back, node) {
+        Queue *q = LIST_ITEM(node, Queue, runlist);
+        printf("Number: %d\n", q->number);
+    }
+
+    printf("Printing backward:\n");
+    queue_for_each_backward(&forward, &back, node) {
+        Queue *q = LIST_ITEM(node, Queue, runlist);
+        printf("Number: %d\n", q->number);
+    }
+}
+
 TEST(queue, dequeue_empty_queue) {
   EQ_SCALAR(dequeue_forward(&forward, &back), NULL);
   EQ_SCALAR(dequeue_backward(&forward, &back), NULL);
@@ -93,10 +115,10 @@ TEST(queue, item_removal_success)
 }
 
 TEST(queue, enqueue_dequeue_object) {
-  typedef struct Queue {
-    int number;
-    ListNode runlist;
-  } Queue;
+//  typedef struct Queue {
+//    int number;
+//    ListNode runlist;
+//  } Queue;
 
   Queue queue[3] = {0};
 
@@ -106,6 +128,8 @@ TEST(queue, enqueue_dequeue_object) {
     list_init(&queue[i].runlist);
     enqueue_back(&back, &queue[i].runlist);
   }
+
+  s_showQueueItems();
 
   // Dequeue one by one and check if the items match the order in which they
   // were added.
