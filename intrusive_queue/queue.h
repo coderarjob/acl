@@ -2,39 +2,39 @@
 #define INTRU_QUEUE_H
 #include <list.h>
 
-static inline void enqueue(ListNode *head, ListNode *item)
+static inline void enqueue (ListNode* head, ListNode* item)
 {
-    list_add_before(head, item);
+    list_add_before (head, item);
 }
 
-static inline ListNode* dequeue(ListNode *head)
+static inline ListNode* dequeue (ListNode* head)
 {
     if (head->next == head) {
         return NULL;
     }
-    ListNode *node =  head->next;
-    list_remove(head->next);
-    return  node;
+    ListNode* node = head->next;
+    list_remove (head->next);
+    return node;
 }
 
-static inline void queue_remove(ListNode *node)
+static inline void queue_remove (ListNode* node)
 {
-    list_remove(node);
+    list_remove (node);
 }
 
-static inline void enqueue_front(ListNode *head, ListNode *item)
+static inline void enqueue_front (ListNode* head, ListNode* item)
 {
-    list_add_after(head, item);
+    list_add_after (head, item);
 }
 
-static inline ListNode* dequeue_back(ListNode *head)
+static inline ListNode* dequeue_back (ListNode* head)
 {
     if (head->prev == head) {
         return NULL;
     }
 
-    ListNode *node = head->prev;
-    list_remove(head->prev);
+    ListNode* node = head->prev;
+    list_remove (head->prev);
     return node;
 }
 
