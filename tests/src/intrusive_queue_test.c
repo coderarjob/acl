@@ -5,8 +5,7 @@
 #include <stdlib.h>
 #include <unittest.h>
 
-ListNode forward;
-ListNode back;
+ListNode head;
 
 typedef struct Queue {
     int number;
@@ -18,21 +17,21 @@ static void s_showQueueItems()
     ListNode *node;
 
     printf("Printing forward:\n");
-    queue_for_each_forward(&forward, &back, node) {
+    queue_for_each(&head, node) {
         Queue *q = LIST_ITEM(node, Queue, runlist);
         printf("Number: %d\n", q->number);
     }
 
     printf("Printing backward:\n");
-    queue_for_each_backward(&forward, &back, node) {
+    queue_for_each_backward(&head, node) {
         Queue *q = LIST_ITEM(node, Queue, runlist);
         printf("Number: %d\n", q->number);
     }
 }
 
 TEST(queue, dequeue_empty_queue) {
-  EQ_SCALAR(dequeue_forward(&forward, &back), NULL);
-  EQ_SCALAR(dequeue_backward(&forward, &back), NULL);
+  EQ_SCALAR(dequeue(&head), NULL);
+  EQ_SCALAR(dequeue_back(&head), NULL);
 
   END();
 }
@@ -42,11 +41,11 @@ TEST(queue, enqueue_backward_dequeue_forward_success) {
   list_init(&node1);
   list_init(&node2);
 
-  enqueue_back(&back, &node1);
-  enqueue_back(&back, &node2);
+  enqueue(&head, &node1);
+  enqueue(&head, &node2);
 
-  EQ_SCALAR(dequeue_forward(&forward, &back), &node1);
-  EQ_SCALAR(dequeue_forward(&forward, &back), &node2);
+  EQ_SCALAR(dequeue(&head), &node1);
+  EQ_SCALAR(dequeue(&head), &node2);
 
   END();
 }
@@ -56,11 +55,11 @@ TEST(queue, enqueue_forward_dequeue_backward_success) {
   list_init(&node1);
   list_init(&node2);
 
-  enqueue_forward(&forward, &node1);
-  enqueue_forward(&forward, &node2);
+  enqueue_front(&head, &node1);
+  enqueue_front(&head, &node2);
 
-  EQ_SCALAR(dequeue_backward(&back, &back), &node1);
-  EQ_SCALAR(dequeue_backward(&back, &back), &node2);
+  EQ_SCALAR(dequeue_back(&head), &node1);
+  EQ_SCALAR(dequeue_back(&head), &node2);
 
   END();
 }
@@ -70,13 +69,13 @@ TEST(queue, dequeue_forward_excess) {
   list_init(&node1);
   list_init(&node2);
 
-  enqueue_back(&back, &node1);
-  enqueue_back(&back, &node2);
+  enqueue(&head, &node1);
+  enqueue(&head, &node2);
 
-  EQ_SCALAR(dequeue_forward(&forward, &back), &node1);
-  EQ_SCALAR(dequeue_forward(&forward, &back), &node2);
-  EQ_SCALAR(dequeue_forward(&forward, &back), NULL);
-  EQ_SCALAR(dequeue_forward(&forward, &back), NULL);
+  EQ_SCALAR(dequeue(&head), &node1);
+  EQ_SCALAR(dequeue(&head), &node2);
+  EQ_SCALAR(dequeue(&head), NULL);
+  EQ_SCALAR(dequeue(&head), NULL);
   END();
 }
 
@@ -85,13 +84,13 @@ TEST(queue, dequeue_backward_excess) {
   list_init(&node1);
   list_init(&node2);
 
-  enqueue_forward(&forward, &node1);
-  enqueue_forward(&forward, &node2);
+  enqueue_front(&head, &node1);
+  enqueue_front(&head, &node2);
 
-  EQ_SCALAR(dequeue_backward(&forward, &back), &node1);
-  EQ_SCALAR(dequeue_backward(&forward, &back), &node2);
-  EQ_SCALAR(dequeue_backward(&forward, &back), NULL);
-  EQ_SCALAR(dequeue_backward(&forward, &back), NULL);
+  EQ_SCALAR(dequeue_back(&head), &node1);
+  EQ_SCALAR(dequeue_back(&head), &node2);
+  EQ_SCALAR(dequeue_back(&head), NULL);
+  EQ_SCALAR(dequeue_back(&head), NULL);
   END();
 }
 
@@ -102,31 +101,26 @@ TEST(queue, item_removal_success)
   list_init(&node2);
   list_init(&node3);
 
-  enqueue_forward(&forward, &node1);
-  enqueue_forward(&forward, &node2);
-  enqueue_forward(&forward, &node3);
+  enqueue_front(&head, &node1);
+  enqueue_front(&head, &node2);
+  enqueue_front(&head, &node3);
 
   queue_remove(&node3);
 
-  EQ_SCALAR(dequeue_backward(&forward, &back), &node1);
-  EQ_SCALAR(dequeue_backward(&forward, &back), &node2);
-  EQ_SCALAR(dequeue_backward(&forward, &back), NULL);
+  EQ_SCALAR(dequeue_back(&head), &node1);
+  EQ_SCALAR(dequeue_back(&head), &node2);
+  EQ_SCALAR(dequeue_back(&head), NULL);
   END();
 }
 
 TEST(queue, enqueue_dequeue_object) {
-//  typedef struct Queue {
-//    int number;
-//    ListNode runlist;
-//  } Queue;
-
   Queue queue[3] = {0};
 
   // Initialize the items array and add it to the queue
   for (int i = 0; i < 3; i++) {
     queue[i].number = 10 + i;
     list_init(&queue[i].runlist);
-    enqueue_back(&back, &queue[i].runlist);
+    enqueue(&head, &queue[i].runlist);
   }
 
   s_showQueueItems();
@@ -135,7 +129,7 @@ TEST(queue, enqueue_dequeue_object) {
   // were added.
   ListNode *item = NULL;
   int i = 0;
-  while ((item = dequeue_forward(&forward, &back)) != NULL) {
+  while ((item = dequeue(&head)) != NULL) {
     Queue *q = (Queue *)LIST_ITEM(item, Queue, runlist);
     EQ_SCALAR(q, &queue[i++]);
   }
@@ -143,7 +137,7 @@ TEST(queue, enqueue_dequeue_object) {
   END();
 }
 
-void reset() { queue_init(&forward, &back); }
+void reset() { list_init(&head); }
 
 int main() {
 

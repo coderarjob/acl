@@ -2,25 +2,18 @@
 #define INTRU_QUEUE_H
 #include <list.h>
 
-static inline void queue_init(ListNode *forward, ListNode *backward)
+static inline void enqueue(ListNode *head, ListNode *item)
 {
-    list_init(forward);
-    list_init(backward);
-    list_add_after(forward, backward);
+    list_add_before(head, item);
 }
 
-static inline void enqueue_back(ListNode *backward, ListNode *item) 
+static inline ListNode* dequeue(ListNode *head)
 {
-    list_add_before(backward, item);
-}
-
-static inline ListNode* dequeue_forward(ListNode *forward, ListNode *backward)
-{
-    if (forward->next == backward) {
+    if (head->next == head) {
         return NULL;
     }
-    ListNode *node =  forward->next;
-    list_remove(forward->next);
+    ListNode *node =  head->next;
+    list_remove(head->next);
     return  node;
 }
 
@@ -29,27 +22,26 @@ static inline void queue_remove(ListNode *node)
     list_remove(node);
 }
 
-static inline void enqueue_forward(ListNode *forward, ListNode *item)
+static inline void enqueue_front(ListNode *head, ListNode *item)
 {
-    list_add_after(forward, item);
+    list_add_after(head, item);
 }
 
-static inline ListNode* dequeue_backward(ListNode *forward, ListNode *backward)
+static inline ListNode* dequeue_back(ListNode *head)
 {
-    if (backward->prev == forward) {
+    if (head->prev == head) {
         return NULL;
     }
 
-    ListNode *node = backward->prev;
-    list_remove(backward->prev);
+    ListNode *node = head->prev;
+    list_remove(head->prev);
     return node;
 }
 
-#define queue_for_each_forward(forward, backward, node) \
-    for ((node) = (forward)->next; (node) != (backward); (node) = (node)->next)
+#define queue_for_each(head, node) \
+    for ((node) = (head)->next; (node) != (head); (node) = (node)->next)
 
-#define queue_for_each_backward(forward, backward, node) \
-    for ((node) = (backward)->prev; (node) != (forward); (node) = (node)->prev)
+#define queue_for_each_backward(head, node) \
+    for ((node) = (head)->prev; (node) != (head); (node) = (node)->prev)
 
 #endif // INTRU_QUEUE_H
-
