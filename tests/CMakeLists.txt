@@ -7,9 +7,7 @@ include_directories(${CMAKE_CURRENT_LIST_DIR}/include)
 ###########################################################################
 project(intrusive_linkedlist_test)
 
-add_executable(${PROJECT_NAME}
-    unittest.c
-    src/intrusive_linkedlist_test.c)
+add_executable(${PROJECT_NAME} src/intrusive_linkedlist_test.c)
 
 target_link_libraries(${PROJECT_NAME} acl)
 ###########################################################################
@@ -17,9 +15,7 @@ target_link_libraries(${PROJECT_NAME} acl)
 ###########################################################################
 project(linkedlist_test)
 
-add_executable(${PROJECT_NAME}
-    unittest.c
-    src/linkedlist_test.c)
+add_executable(${PROJECT_NAME} src/linkedlist_test.c)
 
 target_link_libraries(${PROJECT_NAME} acl)
 ###########################################################################
@@ -27,9 +23,7 @@ target_link_libraries(${PROJECT_NAME} acl)
 ###########################################################################
 project(stack_test)
 
-add_executable(${PROJECT_NAME}
-    unittest.c
-    src/stack_test.c)
+add_executable(${PROJECT_NAME} src/stack_test.c)
 
 target_link_libraries(${PROJECT_NAME} acl)
 ###########################################################################
@@ -37,8 +31,6 @@ target_link_libraries(${PROJECT_NAME} acl)
 ###########################################################################
 project(intrusive_queue)
 
-add_executable(${PROJECT_NAME}
-    unittest.c
-    src/intrusive_queue_test.c)
+add_executable(${PROJECT_NAME} src/intrusive_queue_test.c)
 
 target_link_libraries(${PROJECT_NAME} acl)

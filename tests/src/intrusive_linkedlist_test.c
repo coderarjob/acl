@@ -1,5 +1,7 @@
+#define YUKTI_STRIP_PREFIX
+#define YUKTI_TEST_IMPLEMENTATION
+#include <yukti.h>
 #include <list.h>
-#include "unittest.h"
 #include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -300,12 +302,13 @@ TEST (LIST, list_item_retrival)
     END();
 }
 
-void reset()
+void yt_reset()
 {
 }
 
 int main()
 {
+    YT_INIT();
     single_node();
     three_nodes();
     insert_after();
@@ -315,5 +318,6 @@ int main()
     remove_node_all();
     list_position_independence();
     list_item_retrival();
-    return 0;
+
+    YT_RETURN_WITH_REPORT();
 }

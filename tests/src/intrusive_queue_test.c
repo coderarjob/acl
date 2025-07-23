@@ -1,9 +1,11 @@
+#define YUKTI_STRIP_PREFIX
+#define YUKTI_TEST_IMPLEMENTATION
+#include <yukti.h>
 #include <list.h>
 #include <queue.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unittest.h>
 
 ListNode head;
 
@@ -145,13 +147,14 @@ TEST (queue, enqueue_dequeue_object)
     END();
 }
 
-void reset()
+void yt_reset()
 {
     list_init (&head);
 }
 
 int main()
 {
+    YT_INIT();
     dequeue_empty_queue();
     enqueue_backward_dequeue_forward_success();
     enqueue_forward_dequeue_backward_success();
@@ -160,5 +163,5 @@ int main()
     enqueue_dequeue_object();
     item_removal_success();
 
-    return 0;
+    YT_RETURN_WITH_REPORT();
 }
